@@ -1,1 +1,12 @@
-{}
+{
+  "SKBodhak": {
+    "firstName": "Shyam",
+    "middleName": "Kumar",
+    "lastName": "Bodhak",
+    "gender": "Male",
+    "dob": "2005-4-12",
+    "password": "Shyam@144",
+    "token": "NOVA-TOKEN-5RR98",
+    "registeredAt": "2026-05-21T06:59:04.908Z"
+  }
+}
