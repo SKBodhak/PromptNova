@@ -1,0 +1,12 @@
+{
+  "features": {
+    "showSettings": true,
+    "showLegal": true,
+    "showDevProfile": true,
+    "enableDirectMessage": true,
+    "enableContactLinks": true
+  },
+  "contactButtons": [],
+  "notifSortOrder": "newest",
+  "popupSortOrder": "newest"
+}

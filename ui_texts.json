@@ -1,0 +1,19 @@
+{
+  "menuText": {
+    "settings": "Settings",
+    "legal": "Legal",
+    "developer": "Developer",
+    "footerHtml": "Made with ❤️ by SKBodhak"
+  },
+  "bottomNavText": {
+    "home": "Home",
+    "create": "Create",
+    "library": "Library"
+  },
+  "actionButtons": {
+    "request": "Submit for Approval",
+    "message": "Send Message",
+    "tabPublic": "Public",
+    "tabMessage": "Message"
+  }
+}
