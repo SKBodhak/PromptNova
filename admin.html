@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Prompt Nova | Master Admin</title>
-        <link rel="icon" type="image/png" href="icon.png">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
@@ -263,7 +263,6 @@
             }
             .mobile-nav-btn.active::after { transform: translateX(-50%) scaleX(1); }
             .mobile-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-            .fab-add { bottom: 100px; right: 20px; width: 56px; height: 56px; }
             
             .login-card { padding: 40px 24px; margin: 20px; width: auto; }
         }
@@ -653,8 +652,8 @@
 
     <div class="modal-overlay" id="customAlertModal">
         <div class="system-modal-box">
-            <div class="sys-modal-title">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <div class="sys-modal-title" style="flex-direction: row; gap: 8px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
                 <span id="ca_title">Notice</span>
             </div>
             <div class="sys-modal-msg" id="ca_msg">Message here.</div>
@@ -679,6 +678,40 @@
     </div>
 
     <div id="adminToast">Message</div>
+
+    <div class="modal-overlay" id="userModal">
+        <div class="modal-box" style="max-width: 600px;">
+            <div class="modal-header"><h2 class="modal-title">Edit User</h2><button class="modal-close" onclick="closeModal('userModal')">✕</button></div>
+            <div class="modal-body">
+                <input type="hidden" id="um_username">
+                <div class="row-2">
+                    <div class="form-group"><label>First Name</label><input type="text" class="form-input" id="um_first"></div>
+                    <div class="form-group"><label>Last Name</label><input type="text" class="form-input" id="um_last"></div>
+                </div>
+                <div class="row-2">
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="custom-dd" tabindex="0">
+                            <input type="hidden" id="um_gender" value="Male">
+                            <div class="dd-trigger" onclick="this.parentElement.classList.toggle('active')"><span id="lbl_um_gender">Male</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                            <div class="dd-options">
+                                <div class="dd-option selected" onclick="updateCustomDD(this, 'um_gender', 'lbl_um_gender', 'Male')">Male</div>
+                                <div class="dd-option" onclick="updateCustomDD(this, 'um_gender', 'lbl_um_gender', 'Female')">Female</div>
+                                <div class="dd-option" onclick="updateCustomDD(this, 'um_gender', 'lbl_um_gender', 'Other')">Other</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group"><label>DOB (YYYY-MM-DD)</label><input type="text" class="form-input" id="um_dob"></div>
+                </div>
+                <div class="form-group"><label>Password</label><input type="text" class="form-input" id="um_pass"></div>
+                <div class="form-group"><label>Security Token</label><input type="text" class="form-input" id="um_token"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal-save" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-primary);" onclick="closeModal('userModal')">Cancel</button>
+                <button class="btn-modal-save" onclick="saveUserModal()">Save User</button>
+            </div>
+        </div>
+    </div>
 
     <div class="modal-overlay" id="promptModal">
         <div class="modal-box" style="max-width: 650px;">
@@ -844,6 +877,8 @@
         const TOKEN_P3 = "af9N7uMRil6gusTDpNVJ";
         const TOKEN_P4 = "Bwo8W9g8PNeZqgWRBFUFUFOGKOh1L7lzt8";
         const FULL_TOKEN = TOKEN_P1 + TOKEN_P2 + TOKEN_P3 + TOKEN_P4;
+        
+        const ADMIN_PASSWORD = "NovaAdmin"; 
         // =========================================================================
 
         let state = { site: {}, system: {}, settings: {}, data: { prompts: [] }, users: {}, create: { prompts: [] }, messages: { messages: [] }, adminAuth: null, developer: {}, ui_texts: {}, alerts: {} };
@@ -880,6 +915,15 @@
                 document.getElementById('pm_id').value = '';
                 document.getElementById('pm_text').value = '';
                 document.getElementById('pm_imagesList').innerHTML = '';
+            }
+            if (id === 'userModal') {
+                document.getElementById('um_username').value = '';
+                document.getElementById('um_first').value = '';
+                document.getElementById('um_last').value = '';
+                window.setCustomDDValue('um_gender', 'lbl_um_gender', 'Male');
+                document.getElementById('um_dob').value = '';
+                document.getElementById('um_pass').value = '';
+                document.getElementById('um_token').value = '';
             }
             if (id === 'notifModal') {
                 ['nm_id', 'nm_msg', 'nm_url'].forEach(i => document.getElementById(i).value = '');
@@ -921,7 +965,9 @@
             if(!res.ok) throw new Error(`HTTP Error: ${res.status}`);
             
             const data = await res.json();
-            return { json: JSON.parse(decodeURIComponent(escape(atob(data.content)))), sha: data.sha };
+            const cleanB64 = data.content.replace(/\s/g, '');
+            const decodedStr = decodeURIComponent(escape(atob(cleanB64)));
+            return { json: JSON.parse(decodedStr), sha: data.sha };
         }
 
         function showLoader(msg = "Processing...") {
@@ -929,7 +975,7 @@
             if(loader) {
                 document.getElementById('loaderText').innerText = msg;
                 loader.style.display = 'flex';
-                void loader.offsetWidth; // Force Reflow
+                void loader.offsetWidth; 
                 loader.classList.add('active');
             }
         }
@@ -1083,13 +1129,11 @@
                 fileShas.system = await pushToGitHub('system.json', state.system, fileShas.system);
                 fileShas.settings = await pushToGitHub('settings.json', state.settings, fileShas.settings);
                 
-                // Fallbacks in case changed locally
                 fileShas.data = await pushToGitHub('data.json', state.data, fileShas.data);
                 fileShas.users = await pushToGitHub('users.json', state.users, fileShas.users);
                 fileShas.create = await pushToGitHub('create.json', state.create, fileShas.create);
                 fileShas.messages = await pushToGitHub('messages.json', state.messages, fileShas.messages);
                 
-                // PUSH NEW FILES AS REQUESTED
                 fileShas.developer = await pushToGitHub('developer.json', state.developer, fileShas.developer);
                 fileShas.ui_texts = await pushToGitHub('ui_texts.json', state.ui_texts, fileShas.ui_texts);
                 fileShas.alerts = await pushToGitHub('alerts.json', state.alerts, fileShas.alerts);
@@ -1233,10 +1277,10 @@
             const titles = { 'tab-pending': 'Pending Approvals', 'tab-data': 'Live Library', 'tab-users': 'Registered Users', 'tab-inbox': 'Direct Messages', 'tab-site': 'Site Config', 'tab-admin-create': 'Create Prompt', 'tab-system': 'System UI', 'tab-security': 'Security 🛡️', 'tab-notif': 'Top Banners', 'tab-popup': 'Popups', 'tab-toasts': 'Toasts', 'tab-dev': 'Dev Profile', 'tab-legal': 'Legal' };
             if(titles[tabId]) document.getElementById('headerTitle').innerText = titles[tabId];
 
-            if(tabId === 'tab-data') { renderPromptsList(); }
-            else if(tabId === 'tab-pending') { renderPendingList(); }
-            else if(tabId === 'tab-inbox') { renderInboxList(); }
-            else if(tabId === 'tab-users') { renderUsersList(); }
+            if(tabId === 'tab-data') { window.renderPromptsList(); }
+            else if(tabId === 'tab-pending') { window.renderPendingList(); }
+            else if(tabId === 'tab-inbox') { window.renderInboxList(); }
+            else if(tabId === 'tab-users') { window.renderUsersList(); }
             else if(tabId === 'tab-notif') { renderNotifsList(); }
             else if(tabId === 'tab-popup') { renderPopupsList(); }
             else if(tabId === 'tab-system') { renderContactButtons(); }
@@ -1256,34 +1300,74 @@
         }
 
         // --- INSTANT SYNC ADMIN ACTIONS ---
-        window.renderUsersList = function() {
-            const container = document.getElementById('usersContainer'); container.innerHTML = '';
-            if(!state.users || Object.keys(state.users).length === 0) { 
-                container.style.display = "block";
-                container.innerHTML = `<div class="empty-state" style="padding:40px;">No registered users found.</div>`; 
+        window.renderUsersList = async function() {
+            const container = document.getElementById('usersContainer'); 
+            container.innerHTML = `<div class="spinner" style="margin: 40px auto;"></div><div style="text-align:center; color: var(--text-secondary); margin-top:10px;">Fetching latest users...</div>`;
+            container.style.display = "block";
+
+            try {
+                const cb = new Date().getTime();
+                const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/users.json?ref=${GITHUB_BRANCH}&t=${cb}`;
+                const headers = { "Accept": "application/vnd.github.v3+json", "Authorization": `Bearer ${FULL_TOKEN}` };
+                
+                const res = await fetch(url, { headers });
+                if(res.ok) {
+                    const data = await res.json();
+                    const cleanB64 = data.content.replace(/\s/g, '');
+                    const decodedStr = decodeURIComponent(escape(atob(cleanB64)));
+                    state.users = JSON.parse(decodedStr);
+                    fileShas.users = data.sha;
+                } else if(res.status === 404) {
+                    state.users = {};
+                }
+            } catch(e) {
+                console.error("Users Fetch Error:", e);
+                container.innerHTML = `<div class="empty-state" style="color:var(--accent-danger);">Error loading users. Check network.</div>`;
+                return;
+            }
+
+            container.innerHTML = '';
+            
+            let usersData = state.users || {};
+            if (usersData.users && typeof usersData.users === 'object' && !usersData.firstName) {
+                usersData = usersData.users;
+            }
+            if (Array.isArray(usersData)) {
+                usersData = usersData[0] || {};
+            }
+
+            const userKeys = Object.keys(usersData).filter(k => k !== 'prompts' && k !== 'messages');
+
+            if(userKeys.length === 0) { 
+                container.innerHTML = `<div class="empty-state" style="padding:40px; display:block; border: 1px dashed var(--border-color); color: var(--text-secondary); text-align: center; border-radius: 12px;">No registered users found.</div>`; 
                 return; 
             }
 
-            const userKeys = Object.keys(state.users);
             container.style.display = "grid";
             container.style.gridTemplateColumns = "repeat(auto-fill, minmax(300px, 1fr))";
             container.style.gap = "16px";
 
+            let htmlString = '';
+
             userKeys.forEach(username => {
-                const u = state.users[username];
+                const u = usersData[username];
+                if(!u || typeof u !== 'object') return; 
+
                 const joinDate = u.registeredAt ? new Date(u.registeredAt).toLocaleDateString() : 'Legacy';
+                const mName = u.middleName ? u.middleName + ' ' : '';
+                const fullName = `${u.firstName || ''} ${mName}${u.lastName || ''}`.trim();
 
                 let genderColor = "var(--text-secondary)"; let genderBg = "var(--bg-input)"; let genderBorder = "var(--border-color)";
-                let genderText = u.gender ? u.gender.toLowerCase() : '';
+                let genderText = u.gender ? String(u.gender).toLowerCase() : '';
 
                 if(genderText === 'male') { genderColor = "#38bdf8"; genderBg = "rgba(56, 189, 248, 0.1)"; genderBorder = "rgba(56, 189, 248, 0.2)"; } 
                 else if(genderText === 'female') { genderColor = "#f43f5e"; genderBg = "rgba(244, 63, 94, 0.1)"; genderBorder = "rgba(244, 63, 94, 0.2)"; } 
                 else if(genderText === 'other') { genderColor = "#a78bfa"; genderBg = "rgba(167, 139, 250, 0.1)"; genderBorder = "rgba(167, 139, 250, 0.2)"; }
 
-                container.innerHTML += `
+                htmlString += `
                     <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
                         <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                            <div><h3 style="color: var(--text-primary); font-size: 16px; font-weight: 700;">@${username}</h3><p style="color: var(--text-secondary); font-size: 13px; margin-top: 4px;">${u.firstName || ''} ${u.lastName || ''}</p></div>
+                            <div><h3 style="color: var(--text-primary); font-size: 16px; font-weight: 700;">@${username}</h3><p style="color: var(--text-secondary); font-size: 13px; margin-top: 4px;">${fullName}</p></div>
                             <span style="font-size: 11px; padding: 4px 8px; border-radius: 20px; font-weight: 600; background: ${genderBg}; color: ${genderColor}; border: 1px solid ${genderBorder};">${u.gender || 'N/A'}</span>
                         </div>
                         <div style="background: var(--bg-input); padding: 12px; border-radius: 8px; font-size: 12px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px;">
@@ -1293,21 +1377,24 @@
                         </div>
                         <div style="font-size: 11px; text-align: center; color: var(--accent-purple); word-break: break-all; background: rgba(129, 140, 248, 0.05); padding: 8px; border-radius: 6px; border: 1px dashed rgba(129, 140, 248, 0.3);">Token: ${u.token || 'N/A'}</div>
                         <div style="display: flex; gap: 8px; margin-top: auto;">
-                            <button class="btn-edit" style="flex: 1; padding: 10px;" onclick="openUserModal('${username}')">Edit</button>
-                            <button class="btn-remove-dynamic" style="position: static; flex: 1; padding: 10px;" onclick="deleteUser('${username}')">Delete</button>
+                            <button class="btn-edit" style="flex: 1; padding: 10px;" onclick="window.openUserModal('${username}')">Edit</button>
+                            <button class="btn-remove-dynamic" style="position: static; flex: 1; padding: 10px;" onclick="window.deleteUser('${username}')">Delete</button>
                         </div>
                     </div>`;
             });
+            
+            container.innerHTML = htmlString;
         }
 
         window.deleteUser = async function(username) {
             const confirmed = await customConfirm(`Are you sure you want to permanently delete user @${username}?`, "Delete User", "Delete");
             if(confirmed) { 
                 showLoader("Deleting User...");
-                delete state.users[username]; 
+                let targetObj = state.users.users ? state.users.users : state.users;
+                delete targetObj[username]; 
                 try {
                     fileShas.users = await pushToGitHub('users.json', state.users, fileShas.users);
-                    renderUsersList(); 
+                    window.renderUsersList(); 
                     hideLoader();
                     testToast(`Deleted @${username}`); 
                 } catch(e) { hideLoader(); customAlert(e.message); }
@@ -1315,11 +1402,12 @@
         }
 
         window.openUserModal = function(username) {
-            const u = state.users[username];
+            let targetObj = state.users.users ? state.users.users : state.users;
+            const u = targetObj[username];
             document.getElementById('um_username').value = username;
             document.getElementById('um_first').value = u.firstName || '';
             document.getElementById('um_last').value = u.lastName || '';
-            document.getElementById('um_gender').value = u.gender || 'Male';
+            window.setCustomDDValue('um_gender', 'lbl_um_gender', u.gender || 'Male');
             document.getElementById('um_dob').value = u.dob || '';
             document.getElementById('um_pass').value = u.password || '';
             document.getElementById('um_token').value = u.token || '';
@@ -1328,7 +1416,9 @@
 
         window.saveUserModal = async function() {
             const username = document.getElementById('um_username').value;
-            if(!state.users[username]) return;
+            let targetObj = state.users.users ? state.users.users : state.users;
+            
+            if(!targetObj[username]) return;
             
             const first = document.getElementById('um_first').value.trim();
             const last = document.getElementById('um_last').value.trim();
@@ -1337,25 +1427,43 @@
             if(first.length < 3 || last.length < 3) { customAlert("Names must be at least 3 characters", "Validation Error"); return; }
             if(!pass) { customAlert("Password cannot be empty", "Validation Error"); return; }
 
-            state.users[username].firstName = first;
-            state.users[username].lastName = last;
-            state.users[username].gender = document.getElementById('um_gender').value;
-            state.users[username].dob = document.getElementById('um_dob').value;
-            state.users[username].password = pass;
-            state.users[username].token = document.getElementById('um_token').value;
+            targetObj[username].firstName = first;
+            targetObj[username].lastName = last;
+            targetObj[username].gender = document.getElementById('um_gender').value;
+            targetObj[username].dob = document.getElementById('um_dob').value;
+            targetObj[username].password = pass;
+            targetObj[username].token = document.getElementById('um_token').value;
             
             closeModal('userModal'); 
             showLoader("Saving User...");
             try {
                 fileShas.users = await pushToGitHub('users.json', state.users, fileShas.users);
-                renderUsersList(); 
+                window.renderUsersList(); 
                 hideLoader();
                 testToast("✅ User details updated!");
             } catch(e) { hideLoader(); customAlert(e.message); }
         }
 
-        window.renderInboxList = function() {
-            const container = document.getElementById('inboxContainer'); container.innerHTML = '';
+        window.renderInboxList = async function() {
+            const container = document.getElementById('inboxContainer'); 
+            container.innerHTML = `<div class="spinner" style="margin: 40px auto;"></div>`;
+            try {
+                const cb = new Date().getTime();
+                const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/messages.json?ref=${GITHUB_BRANCH}&t=${cb}`;
+                const res = await fetch(url, { headers: { "Accept": "application/vnd.github.v3+json", "Authorization": `Bearer ${FULL_TOKEN}` } });
+                if(res.ok) {
+                    const data = await res.json();
+                    const cleanB64 = data.content.replace(/\s/g, '');
+                    state.messages = JSON.parse(decodeURIComponent(escape(atob(cleanB64))));
+                    fileShas.messages = data.sha;
+                } else if(res.status === 404) {
+                    state.messages = { messages: [] };
+                }
+            } catch(e) {
+                state.messages = { messages: [] };
+            }
+
+            container.innerHTML = '';
             if(!state.messages || !state.messages.messages || state.messages.messages.length === 0) { 
                 container.innerHTML = `<div class="empty-state" style="display:block; padding:40px;">No messages in the inbox.</div>`; return; 
             }
@@ -1369,7 +1477,7 @@
                             <div class="item-summary-text" style="color:var(--text-primary); margin-top:8px; white-space: normal; line-height:1.5;">${msg.text}</div>
                         </div>
                         <div class="item-summary-actions">
-                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0;" onclick="deleteMessage(${index})">Delete</button>
+                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0;" onclick="window.deleteMessage(${index})">Delete</button>
                         </div>
                     </div>`;
             });
@@ -1382,15 +1490,33 @@
                 state.messages.messages.splice(index, 1); 
                 try {
                     fileShas.messages = await pushToGitHub('messages.json', state.messages, fileShas.messages);
-                    renderInboxList(); 
+                    window.renderInboxList(); 
                     hideLoader();
                     testToast("Message deleted"); 
                 } catch(e) { hideLoader(); customAlert(e.message); }
             }
         }
 
-        window.renderPendingList = function() {
-            const container = document.getElementById('pendingContainer'); container.innerHTML = '';
+        window.renderPendingList = async function() {
+            const container = document.getElementById('pendingContainer'); 
+            container.innerHTML = `<div class="spinner" style="margin: 40px auto;"></div>`;
+            try {
+                const cb = new Date().getTime();
+                const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/create.json?ref=${GITHUB_BRANCH}&t=${cb}`;
+                const res = await fetch(url, { headers: { "Accept": "application/vnd.github.v3+json", "Authorization": `Bearer ${FULL_TOKEN}` } });
+                if(res.ok) {
+                    const data = await res.json();
+                    const cleanB64 = data.content.replace(/\s/g, '');
+                    state.create = JSON.parse(decodeURIComponent(escape(atob(cleanB64))));
+                    fileShas.create = data.sha;
+                } else if(res.status === 404) {
+                    state.create = { prompts: [] };
+                }
+            } catch(e) {
+                state.create = { prompts: [] };
+            }
+
+            container.innerHTML = '';
             if(!state.create || !state.create.prompts || state.create.prompts.length === 0) { 
                 container.innerHTML = `<div class="empty-state" style="display:block; padding:40px;">No pending prompts.</div>`; 
                 return; 
@@ -1406,9 +1532,9 @@
                             <div class="item-summary-text">${prompt.text}</div>
                         </div>
                         <div class="item-summary-actions" style="flex-direction: column;">
-                            <button class="btn-approve" style="width:100%; margin-bottom:4px;" onclick="approvePrompt(${index})">Approve</button>
-                            <button class="btn-edit" style="width:100%; margin-bottom:4px;" onclick="openPromptModal(${index}, 'create')">Edit</button>
-                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0; width:100%;" onclick="rejectPrompt(${index})">Reject</button>
+                            <button class="btn-approve" style="width:100%; margin-bottom:4px;" onclick="window.approvePrompt(${index})">Approve</button>
+                            <button class="btn-edit" style="width:100%; margin-bottom:4px;" onclick="window.openPromptModal(${index}, 'create')">Edit</button>
+                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0; width:100%;" onclick="window.rejectPrompt(${index})">Reject</button>
                         </div>
                     </div>`;
             });
@@ -1427,7 +1553,7 @@
                     fileShas.data = await pushToGitHub('data.json', state.data, fileShas.data);
                     fileShas.create = await pushToGitHub('create.json', state.create, fileShas.create);
                     
-                    renderPendingList(); 
+                    window.renderPendingList(); 
                     hideLoader();
                     testToast("✅ Prompt Approved & Moved to Live");
                 } catch(e) { hideLoader(); customAlert(e.message); }
@@ -1441,15 +1567,33 @@
                 try {
                     state.create.prompts.splice(index, 1); 
                     fileShas.create = await pushToGitHub('create.json', state.create, fileShas.create);
-                    renderPendingList(); 
+                    window.renderPendingList(); 
                     hideLoader();
                     testToast("Prompt Rejected"); 
                 } catch(e) { hideLoader(); customAlert(e.message); }
             }
         }
 
-        window.renderPromptsList = function() {
-            const container = document.getElementById('promptsContainer'); container.innerHTML = '';
+        window.renderPromptsList = async function() {
+            const container = document.getElementById('promptsContainer'); 
+            container.innerHTML = `<div class="spinner" style="margin: 40px auto;"></div>`;
+            try {
+                const cb = new Date().getTime();
+                const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/data.json?ref=${GITHUB_BRANCH}&t=${cb}`;
+                const res = await fetch(url, { headers: { "Accept": "application/vnd.github.v3+json", "Authorization": `Bearer ${FULL_TOKEN}` } });
+                if(res.ok) {
+                    const data = await res.json();
+                    const cleanB64 = data.content.replace(/\s/g, '');
+                    state.data = JSON.parse(decodeURIComponent(escape(atob(cleanB64))));
+                    fileShas.data = data.sha;
+                } else if(res.status === 404) {
+                    state.data = { prompts: [] };
+                }
+            } catch(e) {
+                state.data = { prompts: [] };
+            }
+
+            container.innerHTML = '';
             if(!state.data || !state.data.prompts || state.data.prompts.length === 0) { 
                 container.innerHTML = `<div class="empty-state" style="display:block; padding:40px;">No live prompts available.</div>`; 
                 return; 
@@ -1464,7 +1608,7 @@
                         </div>
                         <div class="item-summary-actions">
                             <button class="btn-edit" onclick="openPromptModal(${index}, 'data')">Edit</button>
-                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0;" onclick="deleteLivePrompt(${index})">Delete</button>
+                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0;" onclick="window.deleteLivePrompt(${index})">Delete</button>
                         </div>
                     </div>`;
             });
@@ -1477,7 +1621,7 @@
                 try {
                     state.data.prompts.splice(index, 1); 
                     fileShas.data = await pushToGitHub('data.json', state.data, fileShas.data);
-                    renderPromptsList(); 
+                    window.renderPromptsList(); 
                     hideLoader();
                     testToast("Prompt Deleted"); 
                 } catch(e) { hideLoader(); customAlert(e.message); }
@@ -1538,10 +1682,10 @@
             try {
                 if(source === 'data') {
                     fileShas.data = await pushToGitHub('data.json', state.data, fileShas.data);
-                    renderPromptsList();
+                    window.renderPromptsList();
                 } else {
                     fileShas.create = await pushToGitHub('create.json', state.create, fileShas.create);
-                    renderPendingList();
+                    window.renderPendingList();
                 }
                 hideLoader();
                 testToast("✅ Changes saved to GitHub.");
@@ -1662,7 +1806,6 @@
                     state.system.actionButtons.tabPublic = document.getElementById('sys_tab_public').value;
                     state.system.actionButtons.tabMessage = document.getElementById('sys_tab_message').value;
                     
-                    // SAVE SEPARATELY TO ui_texts.json
                     state.ui_texts = {
                         menuText: state.system.menuText,
                         bottomNavText: state.system.bottomNavText,
@@ -1785,7 +1928,7 @@
         window.renderNotifsList = function() {
             const container = document.getElementById('notifsContainer'); container.innerHTML = '';
             if(!state.system.notifications || state.system.notifications.length === 0) { 
-                container.innerHTML = `<div class="empty-state" style="padding:20px;">No notifications created. Click Add below.</div>`; 
+                container.innerHTML = `<div class="empty-state" style="padding:20px; display:block;">No notifications created. Click Add below.</div>`; 
                 return; 
             }
             state.system.notifications.forEach((notif, index) => {
@@ -1796,9 +1939,9 @@
                             <div class="item-summary-text">${notif.message}</div>
                         </div>
                         <div class="item-summary-actions">
-                            <button class="btn-preview" onclick="previewNotif(${index})">Preview</button>
+                            <button class="btn-preview" onclick="window.previewNotif(${index})">Preview</button>
                             <button class="btn-edit" onclick="openNotifModal(${index})">Edit</button>
-                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0;" onclick="deleteNotif(${index})">Delete</button>
+                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0;" onclick="window.deleteNotif(${index})">Delete</button>
                         </div>
                     </div>`;
             });
@@ -1812,7 +1955,7 @@
                     fileShas.system = await pushToGitHub('system.json', state.system, fileShas.system);
                     state.alerts.notifications = state.system.notifications;
                     fileShas.alerts = await pushToGitHub('alerts.json', state.alerts, fileShas.alerts);
-                    renderNotifsList(); 
+                    window.renderNotifsList(); 
                     hideLoader();
                     testToast("Notification deleted"); 
                 } catch(e) { hideLoader(); customAlert(e.message); }
@@ -1822,7 +1965,7 @@
         window.renderPopupsList = function() {
             const container = document.getElementById('popupsContainer'); container.innerHTML = '';
             if(!state.system.popups || state.system.popups.length === 0) { 
-                container.innerHTML = `<div class="empty-state" style="padding:20px;">No popups created. Click Add below.</div>`; 
+                container.innerHTML = `<div class="empty-state" style="padding:20px; display:block;">No popups created. Click Add below.</div>`; 
                 return; 
             }
             state.system.popups.forEach((pop, index) => {
@@ -1833,9 +1976,9 @@
                             <div class="item-summary-text">${pop.title}</div>
                         </div>
                         <div class="item-summary-actions">
-                            <button class="btn-preview" onclick="previewPopup(${index})">Preview</button>
+                            <button class="btn-preview" onclick="window.previewPopup(${index})">Preview</button>
                             <button class="btn-edit" onclick="openPopupModal(${index})">Edit</button>
-                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0;" onclick="deletePopup(${index})">Delete</button>
+                            <button class="btn-remove-dynamic" style="position:relative; top:0; right:0;" onclick="window.deletePopup(${index})">Delete</button>
                         </div>
                     </div>`;
             });
@@ -1849,7 +1992,7 @@
                     fileShas.system = await pushToGitHub('system.json', state.system, fileShas.system);
                     state.alerts.popups = state.system.popups;
                     fileShas.alerts = await pushToGitHub('alerts.json', state.alerts, fileShas.alerts);
-                    renderPopupsList(); 
+                    window.renderPopupsList(); 
                     hideLoader();
                     testToast("Popup deleted"); 
                 } catch(e) { hideLoader(); customAlert(e.message); }
@@ -1900,7 +2043,7 @@
                 fileShas.system = await pushToGitHub('system.json', state.system, fileShas.system);
                 state.alerts.notifications = state.system.notifications;
                 fileShas.alerts = await pushToGitHub('alerts.json', state.alerts, fileShas.alerts);
-                renderNotifsList(); 
+                window.renderNotifsList(); 
                 hideLoader();
                 testToast("Notification saved.");
             } catch(e) { hideLoader(); customAlert(e.message); }
@@ -1937,7 +2080,7 @@
                 fileShas.system = await pushToGitHub('system.json', state.system, fileShas.system);
                 state.alerts.popups = state.system.popups;
                 fileShas.alerts = await pushToGitHub('alerts.json', state.alerts, fileShas.alerts);
-                renderPopupsList(); 
+                window.renderPopupsList(); 
                 hideLoader();
                 testToast("Popup saved.");
             } catch(e) { hideLoader(); customAlert(e.message); }
