@@ -8,5 +8,29 @@
   },
   "contactButtons": [],
   "notifSortOrder": "newest",
-  "popupSortOrder": "newest"
+  "popupSortOrder": "newest",
+  "menuText": {
+    "settings": "",
+    "legal": "",
+    "developer": "",
+    "footerHtml": ""
+  },
+  "bottomNavText": {
+    "home": "",
+    "create": "",
+    "library": ""
+  },
+  "actionButtons": {
+    "request": "",
+    "message": "",
+    "tabPublic": "",
+    "tabMessage": ""
+  },
+  "toasts": {
+    "copied": "Copied to clipboard!",
+    "saved": "Saved successfully!",
+    "removed": "Removed from library.",
+    "created": "Prompt submitted for review!",
+    "sent": "Message sent securely."
+  }
 }
