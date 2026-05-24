@@ -4,5 +4,16 @@
     "tosText": "Welcome to Prompt Nova. Please use the platform responsibly and do not submit inappropriate content.",
     "privacyTitle": "Privacy Policy",
     "privacyText": "Your account details and recovery tokens are securely stored. We do not share your data."
+  },
+  "developer": {
+    "name": "",
+    "handle": "",
+    "badge": "",
+    "avatarType": "text",
+    "avatarText": "",
+    "avatarImgUrl": "",
+    "showQuote": false,
+    "quote": "",
+    "skills": []
   }
 }
