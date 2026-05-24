@@ -11,9 +11,9 @@
     "library": ""
   },
   "actionButtons": {
-    "request": "",
-    "message": "",
-    "tabPublic": "",
-    "tabMessage": ""
+    "request": "Submit for Approval",
+    "message": "Send Message",
+    "tabPublic": "Public",
+    "tabMessage": "Message"
   }
 }
