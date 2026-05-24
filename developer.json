@@ -1,18 +1,11 @@
 {
-  "name": "Shyam Kumar Bodhak",
-  "handle": "@SKBodhak",
-  "badge": "Master Developer",
+  "name": "",
+  "handle": "",
+  "badge": "",
   "avatarType": "text",
-  "avatarText": "SK",
+  "avatarText": "",
   "avatarImgUrl": "",
-  "showQuote": true,
-  "quote": "Logic will get you from A to B. Imagination will take you everywhere.",
-  "skills": [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "GitHub API"
-  ],
-  "buttons": [],
-  "socials": []
+  "showQuote": false,
+  "quote": "",
+  "skills": []
 }
