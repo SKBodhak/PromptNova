@@ -1,36 +1,3 @@
 {
-  "features": {
-    "showSettings": true,
-    "showLegal": true,
-    "showDevProfile": true,
-    "enableDirectMessage": true,
-    "enableContactLinks": true
-  },
-  "contactButtons": [],
-  "notifSortOrder": "newest",
-  "popupSortOrder": "newest",
-  "menuText": {
-    "settings": "",
-    "legal": "",
-    "developer": "",
-    "footerHtml": ""
-  },
-  "bottomNavText": {
-    "home": "",
-    "create": "",
-    "library": ""
-  },
-  "actionButtons": {
-    "request": "Submit for Approval",
-    "message": "Send Message",
-    "tabPublic": "Public",
-    "tabMessage": "Message"
-  },
-  "toasts": {
-    "copied": "Copied to clipboard!",
-    "saved": "Saved successfully!",
-    "removed": "Removed from library.",
-    "created": "Prompt submitted for review!",
-    "sent": "Message sent securely."
-  }
+  "_b64": "eyJmZWF0dXJlcyI6eyJzaG93U2V0dGluZ3MiOnRydWUsInNob3dMZWdhbCI6dHJ1ZSwic2hvd0RldlByb2ZpbGUiOnRydWUsImVuYWJsZURpcmVjdE1lc3NhZ2UiOnRydWUsImVuYWJsZUNvbnRhY3RMaW5rcyI6dHJ1ZX0sImNvbnRhY3RCdXR0b25zIjpbXSwibm90aWZTb3J0T3JkZXIiOiJuZXdlc3QiLCJwb3B1cFNvcnRPcmRlciI6Im5ld2VzdCIsIm1lbnVUZXh0Ijp7InNldHRpbmdzIjoiIiwibGVnYWwiOiIiLCJkZXZlbG9wZXIiOiIiLCJmb290ZXJIdG1sIjoiIn0sImJvdHRvbU5hdlRleHQiOnsiaG9tZSI6IiIsImNyZWF0ZSI6IiIsImxpYnJhcnkiOiIifSwiYWN0aW9uQnV0dG9ucyI6eyJyZXF1ZXN0IjoiU3VibWl0IGZvciBBcHByb3ZhbCIsIm1lc3NhZ2UiOiJTZW5kIE1lc3NhZ2UiLCJ0YWJQdWJsaWMiOiJQdWJsaWMiLCJ0YWJNZXNzYWdlIjoiTWVzc2FnZSJ9LCJ0b2FzdHMiOnsiY29waWVkIjoiQ29waWVkIHRvIGNsaXBib2FyZCEiLCJzYXZlZCI6IlNhdmVkIHN1Y2Nlc3NmdWxseSEiLCJyZW1vdmVkIjoiUmVtb3ZlZCBmcm9tIGxpYnJhcnkuIiwiY3JlYXRlZCI6IlByb21wdCBzdWJtaXR0ZWQgZm9yIHJldmlldyEiLCJzZW50IjoiTWVzc2FnZSBzZW50IHNlY3VyZWx5LiJ9fQ=="
 }
