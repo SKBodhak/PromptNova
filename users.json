@@ -1,14 +1,3 @@
 {
-  "SKBodhak": {
-    "firstName": "Shyam",
-    "middleName": "Kumar",
-    "lastName": "Bodhak",
-    "gender": "Male",
-    "dob": "2005-4-12",
-    "password": "144",
-    "token": "NOVA-TOKEN-54GE6",
-    "registeredAt": "2026-05-24T07:00:01.269Z",
-    "avatar": "",
-    "lastProfileUpdate": "2026-05-30T08:45:33.409Z"
-  }
+  "_b64": "eyJTS0JvZGhhayI6eyJmaXJzdE5hbWUiOiJTaHlhbSIsIm1pZGRsZU5hbWUiOiJLdW1hciIsImxhc3ROYW1lIjoiQm9kaGFrIiwiZ2VuZGVyIjoiTWFsZSIsImRvYiI6IjIwMDUtNC0xMiIsInBhc3N3b3JkIjoiMTQ0IiwidG9rZW4iOiJOT1ZBLVRPS0VOLTU0R0U2IiwicmVnaXN0ZXJlZEF0IjoiMjAyNi0wNS0yNFQwNzowMDowMS4yNjlaIiwiYXZhdGFyIjoiIiwibGFzdFByb2ZpbGVVcGRhdGUiOiIyMDI2LTA1LTMwVDA4OjQ1OjMzLjQwOVoifSwic2h5YW1ib2RoYWsiOnsiZmlyc3ROYW1lIjoiU2h5YW0iLCJtaWRkbGVOYW1lIjoiS3VtYXIiLCJsYXN0TmFtZSI6IkJvZGhhayIsImdlbmRlciI6Ik1hbGUiLCJkb2IiOiIyMDA1LTQtMTQiLCJwYXNzd29yZCI6Ik1UUTAiLCJ0b2tlbiI6IlRrOVdRUzFVVDB0RlRpMVhTa1pHV1E9PSIsInJlZ2lzdGVyZWRBdCI6IjIwMjYtMDYtMDVUMDY6NDM6MzIuNzIwWiIsImF2YXRhciI6Imh0dHBzOi8vYXZhdGFycy5naXRodWJ1c2VyY29udGVudC5jb20vdS8xMTQ0NTUxMzY/dj00IiwibGFzdFByb2ZpbGVVcGRhdGUiOm51bGx9fQ=="
 }
