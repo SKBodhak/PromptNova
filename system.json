@@ -1,3 +1,75 @@
 {
-  "_b64": "eyJmZWF0dXJlcyI6eyJzaG93U2V0dGluZ3MiOnRydWUsInNob3dMZWdhbCI6ZmFsc2UsInNob3dEZXZQcm9maWxlIjp0cnVlLCJlbmFibGVEaXJlY3RNZXNzYWdlIjp0cnVlLCJlbmFibGVDb250YWN0TGlua3MiOnRydWV9LCJjb250YWN0QnV0dG9ucyI6W3sidGV4dCI6IkNvbnRhY3Qgb24gVGVsZWdyYW0iLCJ1cmwiOiJodHRwczovL3QubWUveW91cnVzZXJuYW1lIiwiaWNvblN2ZyI6Ijxzdmcgdmlld0JveD1cIjAgMCAyNCAyNFwiPjxwYXRoIGZpbGw9XCJjdXJyZW50Q29sb3JcIiBkPVwiTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTQuNjQgNi44Yy0uMTUgMS41OC0uOCA1LjQyLTEuMTMgNy4xOS0uMTQuNzUtLjQyIDEtLjY4IDEuMDMtLjU4LjA1LTEuMDItLjM4LTEuNTgtLjc1LS44OC0uNTgtMS4zOC0uOTQtMi4yMy0xLjUtLjk5LS42NS0uMzUtMS4wMS4yMi0xLjU5LjE1LS4xNSAyLjcxLTIuNDggMi43Ni0yLjY5LjAxLS4wMy4wMS0uMTQtLjA3LS4xOS0uMDgtLjA1LS4xOS0uMDItLjI3IDAtLjExLjAzLTEuODQgMS4xOC01LjIxIDMuNDUtLjQ5LjMzLS45NC41LTEuMzUuNDktLjQ1LS4wMS0xLjMyLS4yNi0xLjk2LS40Ni0uNzktLjI2LTEuNDEtLjQtMS4zNi0uODQuMDMtLjIzLjM0LS40Ny45My0uNzIgMy42NS0xLjU5IDYuMDktMi42NCA3LjMxLTMuMTQgMy40OC0xLjQzIDQuMjEtMS42OCA0LjY5LTEuNjkuMTEgMCAuMzQuMDMuNDkuMTYuMTIuMTEuMTYuMjYuMTcuMzcgMCAuMDQuMDEuMTYgMCAuMjh6XCIvPjwvc3ZnPiJ9LHsidGV4dCI6IkNvbnRhY3Qgb24gVGVsZWdyYW0iLCJ1cmwiOiJodHRwczovL3QubWUveW91cnVzZXJuYW1lIiwiaWNvblN2ZyI6Ijxzdmcgdmlld0JveD1cIjAgMCAyNCAyNFwiPjxwYXRoIGZpbGw9XCJjdXJyZW50Q29sb3JcIiBkPVwiTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTQuNjQgNi44Yy0uMTUgMS41OC0uOCA1LjQyLTEuMTMgNy4xOS0uMTQuNzUtLjQyIDEtLjY4IDEuMDMtLjU4LjA1LTEuMDItLjM4LTEuNTgtLjc1LS44OC0uNTgtMS4zOC0uOTQtMi4yMy0xLjUtLjk5LS42NS0uMzUtMS4wMS4yMi0xLjU5LjE1LS4xNSAyLjcxLTIuNDggMi43Ni0yLjY5LjAxLS4wMy4wMS0uMTQtLjA3LS4xOS0uMDgtLjA1LS4xOS0uMDItLjI3IDAtLjExLjAzLTEuODQgMS4xOC01LjIxIDMuNDUtLjQ5LjMzLS45NC41LTEuMzUuNDktLjQ1LS4wMS0xLjMyLS4yNi0xLjk2LS40Ni0uNzktLjI2LTEuNDEtLjQtMS4zNi0uODQuMDMtLjIzLjM0LS40Ny45My0uNzIgMy42NS0xLjU5IDYuMDktMi42NCA3LjMxLTMuMTQgMy40OC0xLjQzIDQuMjEtMS42OCA0LjY5LTEuNjkuMTEgMCAuMzQuMDMuNDkuMTYuMTIuMTEuMTYuMjYuMTcuMzcgMCAuMDQuMDEuMTYgMCAuMjh6XCIvPjwvc3ZnPiJ9LHsidGV4dCI6IkNvbnRhY3Qgb24gVGVsZWdyYW0iLCJ1cmwiOiJodHRwczovL3QubWUveW91cnVzZXJuYW1lIiwiaWNvblN2ZyI6Ijxzdmcgdmlld0JveD1cIjAgMCAyNCAyNFwiPjxwYXRoIGZpbGw9XCJjdXJyZW50Q29sb3JcIiBkPVwiTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTQuNjQgNi44Yy0uMTUgMS41OC0uOCA1LjQyLTEuMTMgNy4xOS0uMTQuNzUtLjQyIDEtLjY4IDEuMDMtLjU4LjA1LTEuMDItLjM4LTEuNTgtLjc1LS44OC0uNTgtMS4zOC0uOTQtMi4yMy0xLjUtLjk5LS42NS0uMzUtMS4wMS4yMi0xLjU5LjE1LS4xNSAyLjcxLTIuNDggMi43Ni0yLjY5LjAxLS4wMy4wMS0uMTQtLjA3LS4xOS0uMDgtLjA1LS4xOS0uMDItLjI3IDAtLjExLjAzLTEuODQgMS4xOC01LjIxIDMuNDUtLjQ5LjMzLS45NC41LTEuMzUuNDktLjQ1LS4wMS0xLjMyLS4yNi0xLjk2LS40Ni0uNzktLjI2LTEuNDEtLjQtMS4zNi0uODQuMDMtLjIzLjM0LS40Ny45My0uNzIgMy42NS0xLjU5IDYuMDktMi42NCA3LjMxLTMuMTQgMy40OC0xLjQzIDQuMjEtMS42OCA0LjY5LTEuNjkuMTEgMCAuMzQuMDMuNDkuMTYuMTIuMTEuMTYuMjYuMTcuMzcgMCAuMDQuMDEuMTYgMCAuMjh6XCIvPjwvc3ZnPiJ9XSwibm90aWZTb3J0T3JkZXIiOiJuZXdlc3QiLCJwb3B1cFNvcnRPcmRlciI6Im5ld2VzdCIsIm1lbnVUZXh0Ijp7InNldHRpbmdzIjoiIiwibGVnYWwiOiIiLCJkZXZlbG9wZXIiOiIiLCJmb290ZXJIdG1sIjoiIn0sImJvdHRvbU5hdlRleHQiOnsiaG9tZSI6IiIsImNyZWF0ZSI6IiIsImxpYnJhcnkiOiIifSwiYWN0aW9uQnV0dG9ucyI6eyJyZXF1ZXN0IjoiU3VibWl0IGZvciBBcHByb3ZhbCIsIm1lc3NhZ2UiOiJTZW5kIE1lc3NhZ2UiLCJ0YWJQdWJsaWMiOiJQdWJsaWMiLCJ0YWJNZXNzYWdlIjoiTWVzc2FnZSJ9LCJ0b2FzdHMiOnsiY29waWVkIjoiQ29waWVkIHRvIGNsaXBib2FyZCEiLCJzYXZlZCI6IlNhdmVkIHN1Y2Nlc3NmdWxseSEiLCJyZW1vdmVkIjoiUmVtb3ZlZCBmcm9tIGxpYnJhcnkuIiwiY3JlYXRlZCI6IlByb21wdCBzdWJtaXR0ZWQgZm9yIHJldmlldyEiLCJzZW50IjoiTWVzc2FnZSBzZW50IHNlY3VyZWx5LiJ9LCJwb3B1cHMiOlt7ImlkIjoicG9wXzg3NTgiLCJlbmFibGVkIjp0cnVlLCJmcmVxdWVuY3kiOiJvbmNlIiwidGl0bGUiOiJoZWxsbyIsIm1lc3NhZ2UiOiJ3ZWxjb21lIiwiY2xpY2thYmxlQXJlYSI6ZmFsc2UsImFjdGlvblVybCI6IiIsImJ1dHRvbnMiOltdfV0sIm5vdGlmaWNhdGlvbnMiOlt7ImlkIjoibm90aWZfMzM1OSIsImVuYWJsZWQiOnRydWUsImZyZXF1ZW5jeSI6ImFsd2F5cyIsIm1lc3NhZ2UiOiJoZWxsbGxvIiwiY2xpY2thYmxlQXJlYSI6ZmFsc2UsImFjdGlvblVybCI6IiIsImJ1dHRvbnMiOltdfV19"
+  "features": {
+    "showSettings": true,
+    "showLegal": false,
+    "showDevProfile": true,
+    "enableDirectMessage": true,
+    "enableContactLinks": true
+  },
+  "contactButtons": [
+    {
+      "text": "Contact on Telegram",
+      "url": "https://t.me/yourusername",
+      "iconSvg": "<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.11.03-1.84 1.18-5.21 3.45-.49.33-.94.5-1.35.49-.45-.01-1.32-.26-1.96-.46-.79-.26-1.41-.4-1.36-.84.03-.23.34-.47.93-.72 3.65-1.59 6.09-2.64 7.31-3.14 3.48-1.43 4.21-1.68 4.69-1.69.11 0 .34.03.49.16.12.11.16.26.17.37 0 .04.01.16 0 .28z\"/></svg>"
+    },
+    {
+      "text": "Contact on Telegram",
+      "url": "https://t.me/yourusername",
+      "iconSvg": "<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.11.03-1.84 1.18-5.21 3.45-.49.33-.94.5-1.35.49-.45-.01-1.32-.26-1.96-.46-.79-.26-1.41-.4-1.36-.84.03-.23.34-.47.93-.72 3.65-1.59 6.09-2.64 7.31-3.14 3.48-1.43 4.21-1.68 4.69-1.69.11 0 .34.03.49.16.12.11.16.26.17.37 0 .04.01.16 0 .28z\"/></svg>"
+    },
+    {
+      "text": "Contact on Telegram",
+      "url": "https://t.me/yourusername",
+      "iconSvg": "<svg viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.11.03-1.84 1.18-5.21 3.45-.49.33-.94.5-1.35.49-.45-.01-1.32-.26-1.96-.46-.79-.26-1.41-.4-1.36-.84.03-.23.34-.47.93-.72 3.65-1.59 6.09-2.64 7.31-3.14 3.48-1.43 4.21-1.68 4.69-1.69.11 0 .34.03.49.16.12.11.16.26.17.37 0 .04.01.16 0 .28z\"/></svg>"
+    }
+  ],
+  "notifSortOrder": "newest",
+  "popupSortOrder": "newest",
+  "menuText": {
+    "settings": "",
+    "legal": "",
+    "developer": "",
+    "footerHtml": ""
+  },
+  "bottomNavText": {
+    "home": "",
+    "create": "",
+    "library": ""
+  },
+  "actionButtons": {
+    "request": "Submit for Approval",
+    "message": "Send Message",
+    "tabPublic": "Public",
+    "tabMessage": "Message"
+  },
+  "toasts": {
+    "copied": "Copied to clipboard!",
+    "saved": "Saved successfully!",
+    "removed": "Removed from library.",
+    "created": "Prompt submitted for review!",
+    "sent": "Message sent securely."
+  },
+  "popups": [
+    {
+      "id": "pop_8758",
+      "enabled": true,
+      "frequency": "once",
+      "title": "hello",
+      "message": "welcome",
+      "clickableArea": false,
+      "actionUrl": "",
+      "buttons": []
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_3359",
+      "enabled": true,
+      "frequency": "always",
+      "message": "hellllo",
+      "clickableArea": false,
+      "actionUrl": "",
+      "buttons": []
+    }
+  ]
 }
