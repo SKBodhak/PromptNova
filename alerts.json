@@ -1,3 +1,25 @@
 {
-  "_b64": "eyJub3RpZmljYXRpb25zIjpbeyJpZCI6Im5vdGlmXzMzNTkiLCJlbmFibGVkIjp0cnVlLCJmcmVxdWVuY3kiOiJhbHdheXMiLCJtZXNzYWdlIjoiaGVsbGxsbyIsImNsaWNrYWJsZUFyZWEiOmZhbHNlLCJhY3Rpb25VcmwiOiIiLCJidXR0b25zIjpbXX1dLCJwb3B1cHMiOlt7ImlkIjoicG9wXzg3NTgiLCJlbmFibGVkIjp0cnVlLCJmcmVxdWVuY3kiOiJvbmNlIiwidGl0bGUiOiJoZWxsbyIsIm1lc3NhZ2UiOiJ3ZWxjb21lIiwiY2xpY2thYmxlQXJlYSI6ZmFsc2UsImFjdGlvblVybCI6IiIsImJ1dHRvbnMiOltdfV19"
+  "notifications": [
+    {
+      "id": "notif_3359",
+      "enabled": true,
+      "frequency": "always",
+      "message": "hellllo",
+      "clickableArea": false,
+      "actionUrl": "",
+      "buttons": []
+    }
+  ],
+  "popups": [
+    {
+      "id": "pop_8758",
+      "enabled": true,
+      "frequency": "once",
+      "title": "hello",
+      "message": "welcome",
+      "clickableArea": false,
+      "actionUrl": "",
+      "buttons": []
+    }
+  ]
 }
