@@ -1,3 +1,8 @@
 {
-  "_b64": "eyJwYWdlVGl0bGUiOiJQcm9tcHQgTm92YSIsIm5hbWVQYXJ0MSI6IlByb21wdCIsIm5hbWVQYXJ0MiI6Ik5vdmEiLCJhY2NlbnRDb2xvciI6IiM4MThjZjgiLCJkZWZhdWx0VGhlbWUiOiJkYXJrIiwiZGVmYXVsdFZpZXciOiJncmlkIn0="
+  "pageTitle": "Prompt Nova",
+  "namePart1": "Prompt",
+  "namePart2": "Nova",
+  "accentColor": "#818cf8",
+  "defaultTheme": "dark",
+  "defaultView": "grid"
 }
