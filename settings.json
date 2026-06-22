@@ -1,3 +1,43 @@
 {
-  "_b64": "eyJsZWdhbCI6eyJ0b3NUaXRsZSI6IlRlcm1zIG9mIFNlcnZpY2UiLCJ0b3NUZXh0IjoiV2VsY29tZSB0byBQcm9tcHQgTm92YS4gUGxlYXNlIHVzZSB0aGUgcGxhdGZvcm0gcmVzcG9uc2libHkgYW5kIGRvIG5vdCBzdWJtaXQgaW5hcHByb3ByaWF0ZSBjb250ZW50LiIsInByaXZhY3lUaXRsZSI6IlByaXZhY3kgUG9saWN5IiwicHJpdmFjeVRleHQiOiJZb3VyIGFjY291bnQgZGV0YWlscyBhbmQgcmVjb3ZlcnkgdG9rZW5zIGFyZSBzZWN1cmVseSBzdG9yZWQuIFdlIGRvIG5vdCBzaGFyZSB5b3VyIGRhdGEuIn0sImRldmVsb3BlciI6eyJuYW1lIjoiU2h5YW0gS3VtYXIgQm9kaGFrIiwiaGFuZGxlIjoiIiwiYmFkZ2UiOiIiLCJhdmF0YXJUeXBlIjoidGV4dCIsImF2YXRhclRleHQiOiIiLCJhdmF0YXJJbWdVcmwiOiIiLCJzaG93UXVvdGUiOmZhbHNlLCJxdW90ZSI6ImdoampqampqampqampqampqampqampqampqampqampqampqampqampqIiwic2tpbGxzIjpbImhqZ2hqIiwiaGprIl0sImJ1dHRvbnMiOlt7InRleHQiOiJOZXcgQnV0dG9uIiwic3R5bGUiOiJvdXRsaW5lIiwidXJsIjoiIyJ9XSwic29jaWFscyI6W3sibmFtZSI6IlBsYXRmb3JtIiwidXJsIjoiIyIsImljb25TdmciOiI8c3ZnPjwvc3ZnPiJ9LHsibmFtZSI6IlBsYXRmb3JtIiwidXJsIjoiIyIsImljb25TdmciOiI8c3ZnIGNsYXNzPVwidy02IGgtNiB0ZXh0LWdyYXktODAwIGRhcms6dGV4dC13aGl0ZVwiIGFyaWEtaGlkZGVuPVwidHJ1ZVwiIHhtbG5zPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmdcIiB3aWR0aD1cIjI0XCIgaGVpZ2h0PVwiMjRcIiBmaWxsPVwiY3VycmVudENvbG9yXCIgdmlld0JveD1cIjAgMCAyNCAyNFwiPlxuICA8cGF0aCBmaWxsLXJ1bGU9XCJldmVub2RkXCIgZD1cIk0xMiAyYy0uNzkxIDAtMS41NS4zMTQtMi4xMS44NzRsLS44OTMuODkzYS45ODUuOTg1IDAgMCAxLS42OTYuMjg4SDcuMDRBMi45ODQgMi45ODQgMCAwIDAgNC4wNTUgNy4wNHYxLjI2MmEuOTg2Ljk4NiAwIDAgMS0uMjg4LjY5NmwtLjg5My44OTNhMi45ODQgMi45ODQgMCAwIDAgMCA0LjIybC44OTMuODkzYS45ODUuOTg1IDAgMCAxIC4yODguNjk2djEuMjYyYTIuOTg0IDIuOTg0IDAgMCAwIDIuOTg0IDIuOTg0aDEuMjYyYy4yNjEgMCAuNTEyLjEwNC42OTYuMjg4bC44OTMuODkzYTIuOTg0IDIuOTg0IDAgMCAwIDQuMjIgMGwuODkzLS44OTNhLjk4NS45ODUgMCAwIDEgLjY5Ni0uMjg4aDEuMjYyYTIuOTg0IDIuOTg0IDAgMCAwIDIuOTg0LTIuOTg0VjE1LjdjMC0uMjYxLjEwNC0uNTEyLjI4OC0uNjk2bC44OTMtLjg5M2EyLjk4NCAyLjk4NCAwIDAgMCAwLTQuMjJsLS44OTMtLjg5M2EuOTg1Ljk4NSAwIDAgMS0uMjg4LS42OTZWNy4wNGEyLjk4NCAyLjk4NCAwIDAgMC0yLjk4NC0yLjk4NGgtMS4yNjJhLjk4NS45ODUgMCAwIDEtLjY5Ni0uMjg4bC0uODkzLS44OTNBMi45ODQgMi45ODQgMCAwIDAgMTIgMlptMy42ODMgNy43M2ExIDEgMCAxIDAtMS40MTQtMS40MTNsLTQuMjUzIDQuMjUzLTEuMjc3LTEuMjc3YTEgMSAwIDAgMC0xLjQxNSAxLjQxNGwxLjk4NSAxLjk4NGExIDEgMCAwIDAgMS40MTQgMGw0Ljk2LTQuOTZaXCIgY2xpcC1ydWxlPVwiZXZlbm9kZFwiLz5cbjwvc3ZnPlxuIn1dLCJhdmF0YXJJbWciOiIiLCJhdmF0YXJVcmwiOiIifX0="
+  "legal": {
+    "tosTitle": "Terms of Service",
+    "tosText": "Welcome to Prompt Nova. Please use the platform responsibly and do not submit inappropriate content.",
+    "privacyTitle": "Privacy Policy",
+    "privacyText": "Your account details and recovery tokens are securely stored. We do not share your data."
+  },
+  "developer": {
+    "name": "Shyam Kumar Bodhak",
+    "handle": "",
+    "badge": "",
+    "avatarType": "text",
+    "avatarText": "",
+    "avatarImgUrl": "",
+    "showQuote": false,
+    "quote": "ghjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+    "skills": [
+      "hjghj",
+      "hjk"
+    ],
+    "buttons": [
+      {
+        "text": "New Button",
+        "style": "outline",
+        "url": "#"
+      }
+    ],
+    "socials": [
+      {
+        "name": "Platform",
+        "url": "#",
+        "iconSvg": "<svg></svg>"
+      },
+      {
+        "name": "Platform",
+        "url": "#",
+        "iconSvg": "<svg class=\"w-6 h-6 text-gray-800 dark:text-white\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"currentColor\" viewBox=\"0 0 24 24\">\n  <path fill-rule=\"evenodd\" d=\"M12 2c-.791 0-1.55.314-2.11.874l-.893.893a.985.985 0 0 1-.696.288H7.04A2.984 2.984 0 0 0 4.055 7.04v1.262a.986.986 0 0 1-.288.696l-.893.893a2.984 2.984 0 0 0 0 4.22l.893.893a.985.985 0 0 1 .288.696v1.262a2.984 2.984 0 0 0 2.984 2.984h1.262c.261 0 .512.104.696.288l.893.893a2.984 2.984 0 0 0 4.22 0l.893-.893a.985.985 0 0 1 .696-.288h1.262a2.984 2.984 0 0 0 2.984-2.984V15.7c0-.261.104-.512.288-.696l.893-.893a2.984 2.984 0 0 0 0-4.22l-.893-.893a.985.985 0 0 1-.288-.696V7.04a2.984 2.984 0 0 0-2.984-2.984h-1.262a.985.985 0 0 1-.696-.288l-.893-.893A2.984 2.984 0 0 0 12 2Zm3.683 7.73a1 1 0 1 0-1.414-1.413l-4.253 4.253-1.277-1.277a1 1 0 0 0-1.415 1.414l1.985 1.984a1 1 0 0 0 1.414 0l4.96-4.96Z\" clip-rule=\"evenodd\"/>\n</svg>\n"
+      }
+    ],
+    "avatarImg": "",
+    "avatarUrl": ""
+  }
 }
